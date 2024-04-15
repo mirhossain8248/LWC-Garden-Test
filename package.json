@@ -1,0 +1,55 @@
+{
+  "name": "salesforce-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Salesforce App",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint **/{aura,lwc}/**/*.js",
+    "test": "npm run test:unit",
+    "test:unit": "sfdx-lwc-jest",
+    "test:unit:watch": "sfdx-lwc-jest --watch",
+    "test:unit:debug": "sfdx-lwc-jest --debug",
+    "test:unit:coverage": "sfdx-lwc-jest --coverage",
+    "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+    "prettier:verify": "prettier --check \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+    "postinstall": "husky install",
+    "precommit": "lint-staged",
+    "dev": "npx @lwc-garden/core dev"
+  },
+  "devDependencies": {
+    "@lwc/eslint-plugin-lwc": "^1.1.2",
+    "@lwc/module-resolver": "^6.5.1",
+    "@prettier/plugin-xml": "^3.2.2",
+    "@salesforce/eslint-config-lwc": "^3.2.3",
+    "@salesforce/eslint-plugin-aura": "^2.0.0",
+    "@salesforce/eslint-plugin-lightning": "^1.0.0",
+    "@salesforce/sfdx-lwc-jest": "^3.1.0",
+    "eslint": "^8.11.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^27.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0",
+    "prettier-plugin-apex": "^2.0.1"
+  },
+  "lint-staged": {
+    "**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}": [
+      "prettier --write"
+    ],
+    "**/{aura,lwc}/**/*.js": [
+      "eslint"
+    ]
+  },
+  "dependencies": {
+    "@lwc-garden/core": "^1.0.1",
+    "@lwc/engine": "^1.17.6",
+    "@lwc/engine-dom": "^6.5.1",
+    "@lwc/synthetic-shadow": "^6.5.1",
+    "@lwrjs/client-modules": "^0.12.2",
+    "@lwrjs/loader": "^0.12.2",
+    "@lwrjs/o11y": "^0.12.2",
+    "@lwrjs/router": "^0.12.2",
+    "dom": "^0.0.3"
+  }
+}

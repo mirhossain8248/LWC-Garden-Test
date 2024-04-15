@@ -1,0 +1,26 @@
+{
+    "lwc": {
+      "modules": [
+        {
+          "dir": "./.garden/components",
+          "namespace": "garden"
+        },
+        {
+          "dir": "./force-app/main/default/lwc",
+          "namespace": "c"
+        }
+      ]
+    },
+    "routes": [
+      {
+        "id": "app",
+        "path": "/",
+        "rootComponent": "garden/app",
+        "layoutTemplate": "./.garden/layouts/index.html",
+        "bootstrap": {
+          "syntheticShadow": true
+        }
+      }
+    ]
+  }
+  
